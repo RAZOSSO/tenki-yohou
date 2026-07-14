@@ -454,3 +454,206 @@ body {
 .footer a {
   color: var(--accent);
 }
+
+/* A11y controls */
+.a11y-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.btn.a11y {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  background: var(--card);
+  color: var(--text);
+}
+
+.btn.a11y.on {
+  background: var(--accent);
+  color: #04283a;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.btn.fav-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  background: var(--card);
+  color: var(--text);
+}
+
+.btn.fav-btn.on {
+  background: rgba(251, 191, 36, 0.25);
+  border-color: #fbbf24;
+  color: #fde68a;
+}
+
+/* Search history & favorites chips */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: -8px 0 16px;
+}
+
+.chip-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-right: 2px;
+}
+
+.chip {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+}
+
+.chip.fav {
+  border-color: rgba(251, 191, 36, 0.45);
+}
+
+.chip-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.chip-remove {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.chip-remove:hover {
+  color: #fecaca;
+  border-color: #f87171;
+}
+
+.notice.stale {
+  background: rgba(251, 191, 36, 0.18);
+  border-color: rgba(251, 191, 36, 0.45);
+  color: #fde68a;
+}
+
+/* Clothing advice */
+.advice {
+  background: var(--card-strong);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.advice ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.advice li {
+  margin: 6px 0;
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+/* Large text mode */
+html.large-text {
+  font-size: 118%;
+}
+
+html.large-text .hero h1 {
+  font-size: 2.8rem;
+}
+
+html.large-text .temp-big {
+  font-size: 4rem;
+}
+
+html.large-text .stat-value,
+html.large-text .day-temps {
+  font-size: 1.55rem;
+}
+
+html.large-text .search input,
+html.large-text .btn {
+  font-size: 1.1rem;
+  padding: 14px 18px;
+}
+
+html.large-text .chip {
+  font-size: 1rem;
+  padding: 8px 14px;
+}
+
+/* High contrast mode */
+html.high-contrast {
+  --bg-top: #000000;
+  --bg-bottom: #000000;
+  --card: #111111;
+  --card-strong: #161616;
+  --border: #ffffff;
+  --text: #ffffff;
+  --muted: #eeeeee;
+  --accent: #ffff00;
+  --max: #ffff00;
+  --min: #00ffff;
+}
+
+html.high-contrast body {
+  background: #000;
+}
+
+html.high-contrast .btn.primary {
+  background: #ffff00;
+  color: #000;
+}
+
+html.high-contrast .btn.a11y.on,
+html.high-contrast .week-day.active {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+html.high-contrast .cal-cell.selected {
+  background: #ffff00;
+  color: #000;
+}
+
+html.high-contrast .notice.error {
+  background: #330000;
+  border-color: #ff6666;
+  color: #ffffff;
+}
+
+html.high-contrast .notice.stale {
+  background: #332200;
+  border-color: #ffff00;
+  color: #ffff00;
+}
+
+html.high-contrast .chip,
+html.high-contrast .stat,
+html.high-contrast .hour,
+html.high-contrast .week-day {
+  border-width: 2px;
+}
