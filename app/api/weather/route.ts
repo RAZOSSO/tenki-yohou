@@ -49,6 +49,15 @@ export async function GET(request: Request) {
       const geoUrl = `${GEO_URL}?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`;
       const geoRes = await fetch(geoUrl);
       if (!geoRes.ok) {
+        if (geoRes.status === 401) {
+          return NextResponse.json(
+            {
+              error:
+                "API キーが無効か、まだ有効化されていません。新規キーは有効化まで最大2時間ほどかかります。しばらく待って再度お試しください。",
+            },
+            { status: 401 }
+          );
+        }
         return NextResponse.json(
           { error: "地名の検索に失敗しました。" },
           { status: geoRes.status }
@@ -92,6 +101,15 @@ export async function GET(request: Request) {
     ]);
 
     if (!curRes.ok || !fcRes.ok) {
+      if (curRes.status === 401 || fcRes.status === 401) {
+        return NextResponse.json(
+          {
+            error:
+              "API キーが無効か、まだ有効化されていません。新規キーは有効化まで最大2時間ほどかかります。しばらく待って再度お試しください。",
+          },
+          { status: 401 }
+        );
+      }
       return NextResponse.json(
         { error: "天気データの取得に失敗しました。" },
         { status: 502 }
